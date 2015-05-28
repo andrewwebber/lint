@@ -31,6 +31,8 @@ func usage() {
 	flag.PrintDefaults()
 }
 
+var errorCode = 0
+
 func main() {
 	flag.Usage = usage
 	flag.Parse()
@@ -56,6 +58,8 @@ func main() {
 	default:
 		lintFiles(flag.Args()...)
 	}
+
+	os.Exit(errorCode)
 }
 
 func isDir(filename string) bool {
@@ -87,6 +91,7 @@ func lintFiles(filenames ...string) {
 	}
 	for _, p := range ps {
 		if p.Confidence >= *minConfidence {
+			errorCode = 1
 			fmt.Printf("%v: %s\n", p.Position, p.Text)
 		}
 	}

@@ -21,8 +21,8 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"golang.org/x/tools/go/gcimporter"
-	"golang.org/x/tools/go/types"
+	"github.com/andrewwebber/lint/Godeps/_workspace/src/golang.org/x/tools/go/gcimporter"
+	"github.com/andrewwebber/lint/Godeps/_workspace/src/golang.org/x/tools/go/types"
 )
 
 const styleGuideBase = "https://golang.org/wiki/CodeReviewComments"
